@@ -1,0 +1,159 @@
+.rental-app { height: 100dvh; display: grid; grid-template-rows: auto minmax(0,1fr); overflow: hidden; font-size: 1rem; background: var(--surface); }
+.rental-app .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+.rental-header { min-height: 76px; display: flex; align-items: center; gap: 2rem; padding: .8rem 1.5rem; border-bottom: 1px solid var(--line); }
+.rental-brand { display: flex; align-items: center; gap: .7rem; text-decoration: none; color: var(--text); font-size: 1.125rem; font-weight: 750; letter-spacing: -.02em; }
+.rental-brand-symbol, .rental-assistant-icon { display: grid; place-items: center; background: var(--teal-dark); color: var(--surface); border-radius: 12px; width: 38px; height: 38px; font-size: 1.3rem; font-weight: 750; }
+.rental-brand-caption { display: block; font-size: .75rem; font-weight: 450; color: var(--muted); letter-spacing: 0; margin-top: .15rem; }
+.rental-header-label { margin-left: auto; font-size: .875rem; color: var(--muted); }
+.rental-header .appearance-control { display: flex; align-items: center; gap: .5rem; font-size: .875rem; }
+.rental-header .appearance-control select { width: 95px; min-height: 36px; font-size: .875rem; }
+.rental-workspace { display: flex; min-height: 0; min-width: 0; position: relative; overflow: hidden; }
+.rental-map-section { flex: 1; position: relative; min-width: 0; overflow: hidden; background: var(--map-background); }
+.rental-live-map, .rental-map-fallback, .rental-map-loading { width: 100%; height: 100%; }
+.rental-map-loading { display: grid; place-items: center; color: var(--muted); }
+.rental-map-grid { position: absolute; inset: 0; background-image: linear-gradient(var(--line) 1px, transparent 1px), linear-gradient(90deg,var(--line) 1px,transparent 1px); background-size: 56px 56px; opacity: .35; }
+.rental-map-unavailable { position: absolute; top: 40%; left: 50%; transform: translate(-50%,-25%); width: min(90%, 380px); padding: 1.3rem; background: var(--surface); border: 1px solid var(--line); border-radius: .9rem; box-shadow: 0 5px 20px #172b3c0d; }
+.rental-map-unavailable p { font-size: .9rem; margin: .4rem 0 .75rem; }
+.rental-map-top { position: absolute; top: 1rem; left: 1rem; right: 1rem; display: flex; align-items: flex-start; justify-content: space-between; gap: .75rem; pointer-events: none; }
+.rental-map-top > div { background: var(--surface); padding: .7rem 1rem; box-shadow: 0 2px 12px #172b3c14; border: 1px solid var(--line); border-radius: .7rem; min-width: 0; }
+.rental-map-top strong { display: block; font-size: .95rem; }
+.rental-map-top span { display: block; font-size: .8rem; color: var(--muted); margin-top: .25rem; }
+.rental-map-top button { pointer-events: auto; font-size: .875rem; box-shadow: 0 2px 12px #172b3c14; flex-shrink: 0; }
+.rental-map-legend { position: absolute; left: 1rem; bottom: 2.5rem; display: flex; flex-wrap: wrap; gap: .8rem; background: var(--surface); padding: .6rem .8rem; border: 1px solid var(--line); border-radius: .6rem; font-size: .75rem; }
+.rental-map-legend span { display: inline-flex; align-items: center; gap: .4rem; }
+.rental-map-legend i { width: 10px; height: 10px; border-radius: 3px; display: inline-block; }
+.legend-match { background: #087e79; } .legend-other { background: #879ca9; } .legend-selected { background: #172b3c; }
+.rental-area-disclosure { position: absolute; left: 1rem; bottom: 5.5rem; max-width: calc(100% - 2rem); background: var(--surface); padding: .4rem .7rem; border: 1px solid var(--line); border-radius: .4rem; font-size: .75rem; }
+.rental-unmapped-note { position: absolute; top: 6.5rem; left: 1rem; max-width: min(380px,calc(100% - 2rem)); padding: .7rem .85rem; background: var(--surface); border: 1px solid var(--line); border-radius: .6rem; font-size: .8rem; color: var(--muted); }
+.rental-pin { min-height: 32px; padding: .3rem .6rem; border: 1px solid #9aacb5; border-radius: 7px; background: #fff; color: #263d4c; font-size: .875rem; box-shadow: 0 2px 7px #172b3c30; white-space: nowrap; }
+.rental-pin.is-match { background: #087e79; border-color: #fff; color: white; }
+.rental-pin.is-alternative { border-color: #a96224; color: #754015; }
+.rental-pin.is-subdued { background: #edf1f3; color: #546c7b; box-shadow: none; }
+.rental-pin.is-selected { background: #172b3c; color: white; border: 2px solid white; box-shadow: 0 0 0 2px #172b3c; }
+.rental-chat { display: flex; flex-direction: column; width: clamp(340px,31vw,420px); flex-shrink: 0; min-height: 0; background: var(--surface); border-left: 1px solid var(--line); }
+.rental-chat-heading { display: flex; align-items: flex-start; justify-content: space-between; padding: 1.4rem 1.25rem .6rem; }
+.rental-eyebrow { font-size: .75rem; letter-spacing: .13em; font-weight: 700; color: var(--teal-dark); }
+.rental-chat-heading h1 { font-size: 1.4rem; margin-top: .4rem; letter-spacing: -.04em; line-height: 1.25; }
+.rental-chat-toolbar { display: flex; align-items: center; justify-content: space-between; gap: .75rem; padding: 0 1.25rem .9rem; border-bottom: 1px solid var(--line); }
+.rental-chat-toolbar p { font-size: .8rem; line-height: 1.5; }
+.rental-text-button { min-height: 32px; border: 0; padding: .2rem 0; background: transparent; color: var(--teal-dark); font-size: .8rem; text-align: left; }
+.rental-chat-toolbar button { flex-shrink: 0; }
+.rental-chat-history { min-height: 0; flex: 1; overflow-y: auto; overscroll-behavior: contain; padding: 1.2rem; scroll-behavior: auto; }
+.rental-welcome { margin: clamp(.5rem,4vh,3rem) 0 1rem; }
+.rental-welcome h2 { font-size: 1.3rem; line-height: 1.4; letter-spacing: -.03em; max-width: 260px; margin: 1rem 0 .65rem; }
+.rental-welcome > p { font-size: .9rem; margin-bottom: 1.1rem; }
+.rental-suggestion { display: block; width: 100%; background: var(--surface); border: 1px solid var(--line); color: var(--text); text-align: left; font-weight: 500; font-size: .85rem; margin-bottom: .6rem; padding: .85rem; }
+.rental-suggestion:hover { border-color: var(--teal); }
+.rental-quiet { font-size: .75rem !important; color: var(--muted); line-height: 1.6; overflow-wrap: anywhere; }
+.rental-message { margin-bottom: 1.2rem; overflow-wrap: anywhere; }
+.rental-message-role { display: block; font-size: .75rem; font-weight: 700; color: var(--muted); margin-bottom: .3rem; }
+.rental-message p { color: var(--text); font-size: .9rem; white-space: pre-wrap; }
+.rental-message.user { background: var(--surface-soft); padding: .75rem .85rem; border-radius: .7rem; border: 1px solid var(--line); margin-left: 1rem; }
+.rental-message.assistant { padding-right: .5rem; }
+.rental-checking { font-size: .85rem; margin-bottom: 1rem; }
+.rental-requirements { padding: .75rem 1.2rem; border-bottom: 1px solid var(--line); display: flex; flex-wrap: wrap; gap: .35rem; max-height: 135px; overflow-y: auto; flex-shrink: 0; }
+.rental-requirements > span { padding: .3rem .5rem; background: var(--mint); color: var(--teal-dark); border-radius: 5px; font-size: .75rem; }
+.rental-requirements > p { width: 100%; font-size: .75rem; }
+.rental-recommendations h2, .rental-comparison h2 { font-size: .95rem; margin: .8rem 0; }
+.rental-candidate { padding: .9rem; border: 1px solid var(--line); border-radius: .65rem; margin-bottom: .65rem; }
+.rental-match-tag { display: inline-block; font-size: .75rem; border-radius: 4px; padding: .2rem .4rem; font-weight: 650; margin-bottom: .5rem; background: var(--mint); color: var(--teal-dark); }
+.rental-match-tag.alternative { background: var(--warning-background); color: var(--warning-text); }
+.rental-candidate-title { display: block; background: transparent; border: 0; padding: 0; color: var(--text); font-size: .9rem; text-align: left; min-height: 36px; line-height: 1.5; text-decoration: underline; text-underline-offset: 3px; }
+.rental-candidate > p { font-size: .85rem; margin-top: .35rem; }
+.rental-candidate .rental-candidate-reason { font-size: .75rem; line-height: 1.6; }
+.rental-chat-reference { padding: .6rem 1.2rem; background: var(--surface-soft); border-top: 1px solid var(--line); font-size: .75rem; }
+.rental-chat-reference span { display: block; }
+.rental-chat-reference small { display: block; font-size: .75rem; color: var(--muted); }
+.rental-pinned-actions { display: flex; justify-content: space-between; gap: .5rem; padding: .3rem 1.2rem; border-top: 1px solid var(--line); }
+.rental-composer { margin: 0; padding: .85rem 1.2rem 1rem; border-top: 1px solid var(--line); }
+.rental-composer textarea { width: 100%; resize: none; min-height: 72px; max-height: 140px; padding: .7rem .8rem; border: 1px solid #91aab5; border-radius: .7rem; font: inherit; font-size: .9rem; color: var(--text); background: var(--surface); }
+.rental-composer textarea::placeholder { color: var(--muted); opacity: .85; }
+.rental-composer > div { display: flex; align-items: center; gap: .75rem; justify-content: space-between; margin-top: .5rem; }
+.rental-composer span { font-size: .75rem; color: var(--muted); line-height: 1.4; }
+.rental-composer button { font-size: .8rem; min-height: 36px; }
+.rental-error, .rental-catalog-error { font-size: .85rem; color: var(--warning-text); background: var(--warning-background); padding: .65rem 1rem; border-top: 1px solid var(--line); }
+.rental-error { max-height: 130px; overflow-y: auto; }
+.rental-catalog-error { position: absolute; top: 7rem; left: 1rem; right: 1rem; border-radius: .5rem; }
+.rental-catalog-error button { margin-left: .75rem; }
+.rental-details { width: clamp(270px,23vw,330px); min-width: 0; flex-shrink: 0; display: flex; flex-direction: column; background: var(--surface); border-right: 1px solid var(--line); }
+.rental-panel-heading { display: flex; justify-content: space-between; align-items: center; gap: .5rem; padding: .7rem 1rem; border-bottom: 1px solid var(--line); }
+.rental-panel-heading button { font-size: .75rem; min-height: 34px; padding: .35rem .5rem; }
+.rental-details-scroll { padding: 1rem; overflow-y: auto; overscroll-behavior: contain; min-height: 0; flex: 1; }
+.rental-photo-strip { display: flex; gap: .5rem; overflow-x: auto; margin-bottom: 1rem; scroll-snap-type: x mandatory; }
+.rental-photo-strip img { width: 100%; height: 170px; object-fit: cover; border-radius: .6rem; flex-shrink: 0; scroll-snap-align: start; }
+.rental-no-photo { display: flex; flex-direction: column; align-items: center; justify-content: center; height: 140px; border: 1px solid var(--line); border-radius: .6rem; background: var(--surface-soft); margin-bottom: 1rem; }
+.rental-no-photo > span { color: var(--muted); font-size: 2.5rem; line-height: 1.5; }
+.rental-no-photo p { font-size: .75rem; }
+.rental-configuration { display: block; color: var(--teal-dark); font-size: .75rem; margin-bottom: .4rem; }
+.rental-details h2 { font-size: 1.15rem; line-height: 1.4; margin-bottom: .35rem; }
+.rental-details h3 { font-size: .85rem; margin: 1rem 0 .35rem; }
+.rental-details p { font-size: .85rem; }
+.rental-detail-price { font-size: 1.45rem !important; color: var(--text); font-weight: 750; letter-spacing: -.03em; margin-top: 1rem; }
+.rental-detail-price > span { font-size: .75rem; color: var(--muted); font-weight: 450; letter-spacing: 0; margin-left: .4rem; }
+.rental-availability { margin: .7rem 0; padding: .5rem .65rem; border-radius: .4rem; background: var(--mint); color: var(--teal-dark); font-size: .75rem !important; }
+.rental-availability.sample { color: var(--warning-text); background: var(--warning-background); }
+.rental-facts { margin-top: .8rem; }
+.rental-facts > div { display: flex; justify-content: space-between; gap: .6rem; padding: .55rem 0; border-bottom: 1px solid var(--line); font-size: .8rem; }
+.rental-facts dt { color: var(--muted); flex-shrink: 0; }
+.rental-facts dd { text-align: right; overflow-wrap: anywhere; }
+.rental-details .rental-quiet { margin-top: 1rem; }
+.rental-details-actions { padding: .85rem 1rem; border-top: 1px solid var(--line); }
+.rental-details-actions > button { width: 100%; font-size: .85rem; }
+.rental-details-actions > div { display: flex; gap: .5rem; margin-top: .5rem; }
+.rental-details-actions > div > button { flex: 1; font-size: .75rem; min-height: 36px; padding: .4rem; }
+.rental-enquiry { display: inline-block; color: var(--teal-dark); font-size: .85rem; margin-top: 1rem; }
+.rental-comparison article { padding: .5rem .75rem; border: 1px solid var(--line); border-radius: .6rem; margin-top: .7rem; }
+.rental-comparison .rental-facts { margin-top: 0; }
+.rental-comparison .rental-facts > div { font-size: .75rem; }
+.rental-catalog { position: absolute; top: 5.5rem; right: 1rem; width: min(360px,calc(100% - 2rem)); max-height: calc(100% - 9rem); overflow-y: auto; border: 1px solid var(--line); border-radius: .8rem; background: var(--surface); box-shadow: 0 8px 32px #172b3c21; padding: 0 .75rem .75rem; z-index: 2; }
+.rental-catalog .rental-panel-heading { position: sticky; top: 0; background: var(--surface); padding: .75rem 0; }
+.rental-catalog h2 { font-size: .95rem; }
+.rental-listing { display: flex; flex-direction: column; gap: .3rem; width: 100%; text-align: left; border: 1px solid var(--line); color: var(--text); background: var(--surface); font-size: .85rem; font-weight: 450; margin-top: .6rem; padding: .7rem; }
+.rental-listing.selected { border-color: var(--teal); background: var(--mint); }
+.rental-listing small { font-size: .75rem; color: var(--muted); }
+.rental-mobile-chat, .rental-chat-close { display: none; }
+.rental-app button:disabled { cursor: default; }
+@media (max-width: 1100px) and (min-width: 761px) {
+  .rental-chat { width: 340px; }
+  .rental-details { position: absolute; top: 0; bottom: 0; left: 0; width: 300px; z-index: 5; box-shadow: 8px 0 25px #172b3c20; }
+  .rental-header { padding-inline: 1rem; }
+}
+@media (max-width: 760px) {
+  .rental-header { min-height: 64px; padding: .65rem .85rem; gap: .7rem; }
+  .rental-brand { font-size: 1rem; }
+  .rental-brand-caption { font-size: .75rem; }
+  .rental-brand-symbol { width: 32px; height: 32px; font-size: 1.1rem; border-radius: 9px; }
+  .rental-header-label { display: none; }
+  .rental-header .appearance-control { margin-left: auto; }
+  .rental-header .appearance-control > span { display: none; }
+  .rental-header .appearance-control select { width: 80px; font-size: .75rem; }
+  .rental-map-top { top: .75rem; left: .75rem; right: .75rem; gap: .5rem; }
+  .rental-map-top > div { padding: .65rem; }
+  .rental-map-top strong { font-size: .8rem; }
+  .rental-map-top span { font-size: .7rem; }
+  .rental-map-top button { font-size: .75rem; padding: .5rem; }
+  .rental-map-legend { bottom: 6rem; left: .75rem; right: 3rem; gap: .5rem; font-size: .75rem; }
+  .rental-area-disclosure { bottom: 9rem; left: .75rem; font-size: .75rem; }
+  .rental-mobile-chat { display: block; position: absolute; left: .75rem; right: .75rem; bottom: 2.2rem; font-size: .85rem; box-shadow: 0 3px 15px #172b3c25; }
+  .rental-chat { display: none; position: absolute; left: 0; right: 0; bottom: 0; width: 100%; height: min(88%,800px); border: 1px solid var(--line); border-radius: 16px 16px 0 0; box-shadow: 0 -4px 30px #172b3c20; z-index: 10; }
+  .rental-app.chat-open .rental-chat { display: flex; }
+  .rental-chat-close { display: block; font-size: .75rem; min-height: 36px; padding: .4rem .6rem; }
+  .rental-chat-heading { padding: .85rem 1rem .5rem; }
+  .rental-chat-heading h1 { font-size: 1.125rem; }
+  .rental-chat-toolbar { padding: 0 1rem .6rem; }
+  .rental-chat-history { padding: .85rem 1rem; }
+  .rental-chat-toolbar p { font-size: .75rem; }
+  .rental-composer { padding: .65rem 1rem max(.65rem,env(safe-area-inset-bottom)); }
+  .rental-composer textarea { font-size: 1rem; min-height: 64px; }
+  .rental-welcome { margin-top: .25rem; }
+  .rental-welcome h2 { font-size: 1.1rem; margin-top: .5rem; }
+  .rental-welcome .rental-assistant-icon { display: none; }
+  .rental-requirements { max-height: 92px; padding: .55rem 1rem; }
+  .rental-details { position: absolute; left: 0; right: 0; bottom: 0; height: 62%; width: 100%; border-radius: 16px 16px 0 0; border: 1px solid var(--line); box-shadow: 0 -4px 30px #172b3c20; z-index: 6; }
+  .rental-details-actions { padding: .6rem 1rem max(.6rem,env(safe-area-inset-bottom)); }
+  .rental-details .rental-no-photo { height: 95px; }
+  .rental-details .rental-photo-strip img { height: 140px; }
+  .rental-app.chat-open .rental-details { visibility: hidden; }
+  .rental-catalog { top: 5.5rem; max-height: calc(100% - 11rem); }
+}
+@media (prefers-reduced-motion: reduce) { .rental-app * { scroll-behavior: auto !important; } }

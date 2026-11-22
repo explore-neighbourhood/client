@@ -1,0 +1,159 @@
+{
+  "version": 3,
+  "pages404": true,
+  "appType": "app",
+  "caseSensitive": false,
+  "basePath": "",
+  "redirects": [
+    {
+      "source": "/:path+/",
+      "destination": "/:path+",
+      "internal": true,
+      "priority": true,
+      "statusCode": 308,
+      "regex": "^(?:/((?:[^/]+?)(?:/(?:[^/]+?))*))/$"
+    }
+  ],
+  "headers": [
+    {
+      "source": "/:path*",
+      "headers": [
+        {
+          "key": "Content-Security-Policy",
+          "value": "frame-ancestors http://localhost:3302"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "strict-origin-when-cross-origin"
+        },
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        }
+      ],
+      "regex": "^(?:/((?:[^/]+?)(?:/(?:[^/]+?))*))?(?:/)?$"
+    },
+    {
+      "source": "/api/v1/properties/:path*",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "private, no-store"
+        }
+      ],
+      "regex": "^/api/v1/properties(?:/((?:[^/]+?)(?:/(?:[^/]+?))*))?(?:/)?$"
+    }
+  ],
+  "onMatchHeaders": [],
+  "rewrites": {
+    "beforeFiles": [],
+    "afterFiles": [
+      {
+        "source": "/api/v1/rental/:path*",
+        "destination": "http://127.0.0.1:4000/api/v1/rental/:path*",
+        "regex": "^/api/v1/rental(?:/((?:[^/]+?)(?:/(?:[^/]+?))*))?(?:/)?$"
+      },
+      {
+        "source": "/api/v1/search/interpret",
+        "destination": "http://127.0.0.1:4000/api/v1/search/interpret",
+        "regex": "^/api/v1/search/interpret(?:/)?$"
+      },
+      {
+        "source": "/api/v1/journeys/route",
+        "destination": "http://127.0.0.1:4000/api/v1/journeys/route",
+        "regex": "^/api/v1/journeys/route(?:/)?$"
+      },
+      {
+        "source": "/api/v1/journeys/assistant",
+        "destination": "http://127.0.0.1:4000/api/v1/journeys/assistant",
+        "regex": "^/api/v1/journeys/assistant(?:/)?$"
+      },
+      {
+        "source": "/api/v1/locations/nearby",
+        "destination": "http://127.0.0.1:4000/api/v1/locations/nearby",
+        "regex": "^/api/v1/locations/nearby(?:/)?$"
+      },
+      {
+        "source": "/api/v1/locations/route",
+        "destination": "http://127.0.0.1:4000/api/v1/locations/route",
+        "regex": "^/api/v1/locations/route(?:/)?$"
+      },
+      {
+        "source": "/api/v1/locations/search",
+        "destination": "http://127.0.0.1:4000/api/v1/locations/search",
+        "regex": "^/api/v1/locations/search(?:/)?$"
+      },
+      {
+        "source": "/api/v1/localities",
+        "destination": "http://127.0.0.1:4000/api/v1/localities",
+        "regex": "^/api/v1/localities(?:/)?$"
+      },
+      {
+        "source": "/api/v1/properties/search",
+        "destination": "http://127.0.0.1:4000/api/v1/properties/search",
+        "regex": "^/api/v1/properties/search(?:/)?$"
+      },
+      {
+        "source": "/api/v1/properties/:id",
+        "destination": "http://127.0.0.1:4000/api/v1/properties/:id",
+        "regex": "^/api/v1/properties(?:/([^/]+?))(?:/)?$"
+      },
+      {
+        "source": "/api/v1/properties/:id/nearby",
+        "destination": "http://127.0.0.1:4000/api/v1/properties/:id/nearby",
+        "regex": "^/api/v1/properties(?:/([^/]+?))/nearby(?:/)?$"
+      },
+      {
+        "source": "/api/v1/properties/:id/route",
+        "destination": "http://127.0.0.1:4000/api/v1/properties/:id/route",
+        "regex": "^/api/v1/properties(?:/([^/]+?))/route(?:/)?$"
+      }
+    ],
+    "fallback": []
+  },
+  "dynamicRoutes": [],
+  "staticRoutes": [
+    {
+      "page": "/",
+      "regex": "^/(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/(?:/)?$"
+    },
+    {
+      "page": "/_global-error",
+      "regex": "^/_global\\-error(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/_global\\-error(?:/)?$"
+    },
+    {
+      "page": "/_not-found",
+      "regex": "^/_not\\-found(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/_not\\-found(?:/)?$"
+    },
+    {
+      "page": "/explore",
+      "regex": "^/explore(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/explore(?:/)?$"
+    }
+  ],
+  "dataRoutes": [],
+  "rsc": {
+    "header": "rsc",
+    "varyHeader": "rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch",
+    "prefetchHeader": "next-router-prefetch",
+    "didPostponeHeader": "x-nextjs-postponed",
+    "contentTypeHeader": "text/x-component",
+    "suffix": ".rsc",
+    "prefetchSegmentHeader": "next-router-segment-prefetch",
+    "prefetchSegmentSuffix": ".segment.rsc",
+    "prefetchSegmentDirSuffix": ".segments",
+    "clientParamParsing": false,
+    "dynamicRSCPrerender": false
+  },
+  "rewriteHeaders": {
+    "pathHeader": "x-nextjs-rewritten-path",
+    "queryHeader": "x-nextjs-rewritten-query"
+  }
+}

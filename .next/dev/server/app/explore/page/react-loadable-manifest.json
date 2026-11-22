@@ -1,0 +1,22 @@
+{
+  "[project]/src/features/property-search/components/google-map.tsx [app-client] (ecmascript, next/dynamic entry)": {
+    "id": "[project]/src/features/property-search/components/google-map.tsx [app-client] (ecmascript, next/dynamic entry)",
+    "files": [
+      "static/chunks/_064w-o3ccuzou._.js"
+    ]
+  },
+  "[project]/src/features/property-search/components/globe-map.tsx [app-client] (ecmascript, next/dynamic entry)": {
+    "id": "[project]/src/features/property-search/components/globe-map.tsx [app-client] (ecmascript, next/dynamic entry)",
+    "files": [
+      "static/chunks/_1um1wl7ou6uux._.js"
+    ]
+  },
+  "[project]/src/features/neighborhood/surroundings-walk.tsx [app-client] (ecmascript, next/dynamic entry)": {
+    "id": "[project]/src/features/neighborhood/surroundings-walk.tsx [app-client] (ecmascript, next/dynamic entry)",
+    "files": [
+      "static/chunks/src_features_neighborhood_person-journey_tsx_10kj-crfcykwx._.js",
+      "static/chunks/src_features_1np-ejlich33z._.js",
+      "static/chunks/node_modules_@googlemaps_js-api-loader_dist_index_1--bi6-j9m19o.js"
+    ]
+  }
+}

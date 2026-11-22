@@ -4,6 +4,14 @@ Next.js and React. Use Node 22 or 24 and run `npm ci`, `npm run dev`, or `npm ru
 
 Local settings are loaded from `.env.local`. It contains the API origin, public Maps key, map ID and frame allowlist. Copy `.env.example` to `.env.local` for a fresh checkout and populate your own values. Restart the client after changing settings. Vercel uses the environment values configured on its project and requires a redeployment for build-time settings.
 
+## Rental discovery
+
+`/` uses the rental map and assistant in `src/features/rental-assistant`: configuration markers with clustering, catalog pagination, contextual left details, pinned property IDs, structured map actions, comparison and resumable conversations. Mobile uses separate expandable chat and property sheets. The CSV contains historical listings without coordinates; these remain searchable and show an explicit missing-coordinate state. No pin, photo or verified availability is invented. `/explore` retains the prior neighborhood implementation described below.
+
+The independent server owns Gemini/LangChain, persistence and matching. The client proxies `/api/v1/rental/*` to `API_ORIGIN`. Its local storage contains only conversation credentials; requirements and recent history are reloaded from the authorized API. New search deletes the prior conversation. No server source or environment setting is imported into this app.
+
+For the isolated browser suite, start MongoDB on port 27028 and run `node --import tsx test/rental-browser-server.ts` from `apps/server`; this loads the supplied CSV and explicitly controlled test fixtures into a temporary database on port 4100. Start this client normally, then run `E2E_CHROMIUM_PATH=/usr/bin/google-chrome-stable npm run test:e2e` here. The controlled tests forward inventory/rental requests to that API and block paid map requests. Stop the test API after the suite to remove its temporary database.
+
 ## Vercel
 
 1. Import the repository and set **Root Directory** to `apps/client`. Use the Next.js preset, `npm ci` as the install command if overridden, and the default Next.js build.
