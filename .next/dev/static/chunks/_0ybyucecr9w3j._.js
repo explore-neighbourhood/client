@@ -1,5 +1,0 @@
-(globalThis["TURBOPACK_CHUNK_LISTS"] || (globalThis["TURBOPACK_CHUNK_LISTS"] = [])).push({
-    script: typeof document === "object" ? document.currentScript : undefined,
-    chunks: ["static/chunks/src_07qe0cndvxo57._.css","static/chunks/_087rn_87_i9wy._.js","static/chunks/src_features_1eyodtu78ew1l._.js","static/chunks/src_features_102uil0zwod2m._.js","static/chunks/node_modules_next_dist_15sw_rdsjgo1c._.js","static/chunks/node_modules_zod_v4_classic_1qwup0rusowch._.js","static/chunks/node_modules_zod_v4_core_14qn2mg1f8pkp._.js","static/chunks/node_modules_zod_v4_locales_1-ided7izgr--._.js","static/chunks/node_modules_@googlemaps_polyline-codec_dist_index_esm_1rro-bfwvfu25.js","static/chunks/_064w-o3ccuzou._.js","static/chunks/_1um1wl7ou6uux._.js","static/chunks/src_features_neighborhood_person-journey_tsx_1gh16hnuwenq4._.js","static/chunks/src_features_1np-ejlich33z._.js","static/chunks/node_modules_@googlemaps_js-api-loader_dist_index_1--bi6-j9m19o.js","static/chunks/_0azdq_ao4_3wl._.js"],
-    source: "entry"
-});
