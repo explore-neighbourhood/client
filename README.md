@@ -23,3 +23,35 @@ npm run test:e2e
 
 Set `E2E_BASE_URL` to test a different client URL or `E2E_CHROMIUM_PATH` for an existing Chrome/Chromium.
 # client
+
+
+## Google 3D person
+
+Open Explore Neighborhood and choose 3D Person. Select a nearby destination and route to enable Walk route. The original GLB person follows the returned geometry with a terrain-aware camera. Map View and Street View retain the paused person progress. Without a route, tap a map point to place the person.
+
+Enable the Elevation API on the referrer-restricted browser key used by `NEXT_PUBLIC_GOOGLE_MAPS_KEY`. The camera uses elevation samples for the selected route. Initial preparation times out with retry and map/Street View recovery. Detailed 3D street coverage depends on Google's local data. The Bellandur check displayed satellite imagery on terrain.
+
+The original model is generated locally with `node scripts/generate-pedestrian.mjs`. Its source and GLB are owned application assets. The current person moves in a standing pose. Vehicle models, animated gait and the remaining F20 criteria are tracked in `../../docs/p0-delivery.md`.
+
+
+## Map display and theme
+
+Use Map view to choose Default (Roadmap), Satellite, Terrain or 3D / Globe. Show globe zooms out from the prepared 3D scene. Reset view restores the search or route context. The 3D renderer requires the browser Maps key and Elevation API configuration described above, with a Default-view recovery action for unavailable 3D rendering.
+
+Theme defaults to System and offers Light and Dark for the current visit. Roadmap and Terrain follow the selected map color scheme. Satellite and hybrid 3D imagery retain their captured colors. Cloud styling and detailed local building geometry depend on the configured Maps project and Google's coverage.
+
+
+## Start-to-destination workspace
+
+Find a home keeps the existing inventory, locality, radius, drawing, manual/AI filters and comparison flows. Search settings collapse after matching homes arrive. Plan a journey accepts confirmed start and destination place results or explicit map points. Preview route requests a tenant-budgeted route through the Node API. View journey opens a prepared 3D person scene with play/pause, restart, seeking and 1×/2×/4×/8×/16× illustrative speed. The initial playback setting is 4×. Street View and map remain available.
+
+The client requests `application/x-ndjson` from `POST /api/v1/journeys/route`. It consumes validated preparation and route records. Google loads the scene through its browser library. The server's Gemini integration handles natural-language search interpretation, while deterministic location selection and routing remain usable independently.
+
+The demo catalog contains explicitly fictional Bellandur and HSR homes. Production portal inventory needs an authorized feed. The illustration below is generated and shared by sample cards. Source names and prices in the demo describe application-owned fixtures.
+
+### Illustrative asset provenance
+
+`public/images/illustrative-apartment.png` was generated with the built-in image generator for the current project. Next Image serves responsive versions. The generation prompt was the following.
+
+> Create an original photorealistic architectural editorial photograph for a clearly fictional apartment listing in a Bengaluru neighborhood exploration web application. A tasteful contemporary mid-rise apartment building in Bengaluru, warm ivory facade, terracotta accents, deep balconies, lush tropical trees and native landscaping, viewed from the street in gentle morning sunshine. Premium yet believable middle-market Indian residential architecture, 5 to 7 floors, no people prominent, no text, no logos, no signs, no portal branding, no collages. Wide landscape composition, clean realistic materials, natural colors, beautiful restrained photography. This is an illustrative fictional property photograph, not a specific existing listing.
+# client
